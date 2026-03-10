@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-public class Class {
+public class UniversityClass {
 
     private String name;
 
@@ -10,4 +10,42 @@ public class Class {
 
     private Teacher teacher;
 
+    public UniversityClass(String name, String classroom, Teacher teacher) {
+        this.name = name;
+        this.classroom = classroom;
+        this.teacher = teacher;
+        this.students = new ArrayList<>();
+    }
+
+    public void addStudent(Student student) {
+        this.students.add(student);
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getClassroom() {
+        return classroom;
+    }
+
+    public void setClassroom(String classroom) {
+        this.classroom = classroom;
+    }
+
+    public ArrayList<Student> getStudents() {
+        return students;
+    }
+
+    public Teacher getTeacher() {
+        return teacher;
+    }
+
+    public void setTeacher(Teacher teacher) {
+        this.teacher = teacher;
+    }
 }
