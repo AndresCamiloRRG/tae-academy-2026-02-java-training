@@ -1,3 +1,5 @@
+package model;
+
 public class Student {
 
     private String name;
@@ -10,6 +12,11 @@ public class Student {
         this.name = name;
         this.id = id;
         this.age = age;
+    }
+
+    @Override
+    public String toString(){
+        return "Name: " + name + " Age: " + age + " ID: " + id;
     }
 
     public String getName() {

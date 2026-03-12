@@ -1,3 +1,5 @@
+package model;
+
 public class PartTimeTeacher extends Teacher{
 
     private double hoursPerWeek;
@@ -10,6 +12,11 @@ public class PartTimeTeacher extends Teacher{
     @Override
     public double calculateSalary() {
         return baseSalary*hoursPerWeek;
+    }
+
+    @Override
+    public String toString(){
+        return "Name: " + name + " Type: Part-Time " + " Salary: " + calculateSalary();
     }
 
     public double getHoursPerWeek() {

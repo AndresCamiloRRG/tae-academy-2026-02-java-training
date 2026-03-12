@@ -1,3 +1,5 @@
+package model;
+
 import java.util.ArrayList;
 
 public class UniversityClass {
@@ -19,6 +21,18 @@ public class UniversityClass {
 
     public void addStudent(Student student) {
         this.students.add(student);
+    }
+
+    @Override
+    public String toString(){
+
+        String studentsOut = "";
+
+        for (Student student: students){
+            studentsOut = studentsOut + "\n     - " + student.toString();
+        }
+
+        return "\nClass: " + name + "\nClassroom: " + classroom + "\nTeacher: " + teacher.getName() + "\nStudents" + studentsOut;
     }
 
     public String getName() {
