@@ -29,24 +29,6 @@ public class University {
         return studentClasses;
     }
 
-    public Student findStudentById(int id) {
-        for (Student student : students){
-            if (student.getId() == id){
-                return student;
-            }
-        }
-        return null;
-    }
-
-    public Teacher findTeacherByName(String name) {
-        for (Teacher teacher : teachers){
-            if (teacher.getName().equals(name)){
-                return teacher;
-            }
-        }
-        return null;
-    }
-
     public void addTeacher(Teacher teacher) {
         this.teachers.add(teacher);
     }

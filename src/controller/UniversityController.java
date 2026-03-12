@@ -17,9 +17,9 @@ public class UniversityController {
 
     public void start() {
         int option = 0;
-        System.out.println("Welcome to Globant University");
+        System.out.println("Welcome to Globant University, Population of: " + Student.getTotalStudentsCreated() + " students");
 
-        while (option != 6) {
+        while (option != 7) {
             printMenu();
             try {
                 option = Integer.parseInt(scanner.nextLine());
@@ -37,7 +37,8 @@ public class UniversityController {
         System.out.println("3. Create a new student");
         System.out.println("4. Create a new class");
         System.out.println("5. List classes for a student");
-        System.out.println("6. Exit");
+        System.out.println("6. Print all students");
+        System.out.println("7. Exit");
         System.out.print("Select an option: ");
     }
 
@@ -59,6 +60,9 @@ public class UniversityController {
                 listStudentClasses();
                 break;
             case 6:
+                printStudents();
+                break;
+            case 7:
                 System.out.println("Goodbye");
                 break;
             default:
@@ -94,13 +98,11 @@ public class UniversityController {
     private void createNewStudent() {
         System.out.print("Enter Student Name: ");
         String name = scanner.nextLine();
-        System.out.print("Enter Student ID: ");
-        int id = Integer.parseInt(scanner.nextLine());
         System.out.print("Enter Student Age: ");
         int age = Integer.parseInt(scanner.nextLine());
 
-        Student newStudent = new Student(name, id, age);
-        university.getStudents().add(newStudent);
+        Student newStudent = new Student(name, age);
+        university.addStudent(newStudent);
 
         System.out.println("Available Classes:");
         List<UniversityClass> classes = university.getClasses();
@@ -174,6 +176,14 @@ public class UniversityController {
         }
     }
 
+    private void printStudents() {
+        System.out.println("\n--- Students List ---");
+        for (Student student : university.getStudents()) {
+            System.out.println(student.toString());
+        }
+        System.out.println("\nFor a total of: " + Student.getTotalStudentsCreated() + " students");
+    }
+
     private void initializeData() {
         // 1. Teachers
         FullTimeTeacher ft1 = new FullTimeTeacher("Dr. Alan Turing", 3000, 10);
@@ -184,12 +194,12 @@ public class UniversityController {
         university.addTeacher(pt1); university.addTeacher(pt2);
 
         // 2. Students
-        university.addStudent(new Student("Alice", 1001, 20));
-        university.addStudent(new Student("Bob", 1002, 21));
-        university.addStudent(new Student("Charlie", 1003, 22));
-        university.addStudent(new Student("Diana", 1004, 19));
-        university.addStudent(new Student("Ethan", 1005, 20));
-        university.addStudent(new Student("Fiona", 1006, 21));
+        university.addStudent(new Student("Alice", 20));
+        university.addStudent(new Student("Bob", 21));
+        university.addStudent(new Student("Charlie", 22));
+        university.addStudent(new Student("Diana", 19));
+        university.addStudent(new Student("Ethan", 20));
+        university.addStudent(new Student("Fiona", 21));
 
         // 3. Classes
         UniversityClass c1 = new UniversityClass("Intro to CS", "Room 101", ft1);
